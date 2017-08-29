@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
+class KWSaveDotVCtrl: UIViewController {
 
     // MARK: - enum
     fileprivate enum ScreenEdge: Int {
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupPlayerView()
         prepareGame()
     }
@@ -123,7 +125,7 @@ class ViewController: UIViewController {
     }
 }
 
-fileprivate extension ViewController {
+fileprivate extension KWSaveDotVCtrl {
     func setupPlayerView() {
         playerView.bounds.size = CGSize(width: radius * 2, height: radius * 2)
         playerView.layer.cornerRadius = radius
