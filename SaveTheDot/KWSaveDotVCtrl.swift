@@ -46,12 +46,34 @@ class KWSaveDotVCtrl: UIViewController {
     fileprivate var gameState = GameState.ready
 
     // MARK: - IBOutlets
-    @IBOutlet weak var clockLabel: UILabel!
-    @IBOutlet weak var startLabel: UILabel!
+    var clockLabel: UILabel!
+    var startLabel: UILabel!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.init(red: 0.91, green: 0.91, blue: 0.93, alpha: 1)
+        
+        clockLabel = UILabel()
+        clockLabel.textColor = UIColor.purple
+        self.view.addSubview(clockLabel)
+        
+        startLabel = UILabel()
+        startLabel.textColor = UIColor.purple
+        startLabel.text = "Tap & Start"
+        self.view.addSubview(startLabel)
+        
+        weak var ws = self
+        clockLabel.snp.makeConstraints { (make) in
+            make.right.equalTo(ws!.view.snp.right).offset(-5)
+            make.top.equalTo(ws!.view.snp.top).offset(25)
+        }
+        
+        startLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(ws!.view.snp.centerX)
+            make.bottom.equalTo(ws!.view.snp.bottom).offset(-150)
+        }
         
         setupPlayerView()
         prepareGame()
