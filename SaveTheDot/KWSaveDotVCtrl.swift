@@ -161,8 +161,7 @@ fileprivate extension KWSaveDotVCtrl {
     }
 
     func stopEnemyTimer() {
-        guard let enemyTimer = enemyTimer,
-            enemyTimer.isValid else {
+        guard let enemyTimer = enemyTimer, enemyTimer.isValid else {
                 return
         }
         enemyTimer.invalidate()
